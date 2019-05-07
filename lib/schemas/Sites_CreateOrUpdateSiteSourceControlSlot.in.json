@@ -1,0 +1,94 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "slot": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Describes the source control configuration for web app",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "branch": {
+                            "description": "Name of branch to use for deployment",
+                            "type": "string"
+                        },
+                        "deploymentRollbackEnabled": {
+                            "description": "Whether to manual or continuous integration",
+                            "type": "boolean"
+                        },
+                        "isManualIntegration": {
+                            "description": "Whether to manual or continuous integration",
+                            "type": "boolean"
+                        },
+                        "isMercurial": {
+                            "description": "Mercurial or Git repository type",
+                            "type": "boolean"
+                        },
+                        "repoUrl": {
+                            "description": "Repository or source control url",
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

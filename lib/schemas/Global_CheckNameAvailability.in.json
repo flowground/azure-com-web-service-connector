@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Resource name availability request content",
+            "properties": {
+                "isFqdn": {
+                    "description": "Is fully qualified domain name",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "Resource name to verify",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Resource type used for verification",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

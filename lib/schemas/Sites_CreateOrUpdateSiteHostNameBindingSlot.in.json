@@ -1,0 +1,130 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "hostName": {
+            "required": true,
+            "type": "string"
+        },
+        "slot": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "A host name binding object",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "azureResourceName": {
+                            "description": "Azure resource name",
+                            "type": "string"
+                        },
+                        "azureResourceType": {
+                            "description": "Azure resource type",
+                            "enum": [
+                                "Website",
+                                "TrafficManager"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "AzureResourceType"
+                            }
+                        },
+                        "customHostNameDnsRecordType": {
+                            "description": "Custom DNS record type",
+                            "enum": [
+                                "CName",
+                                "A"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "CustomHostNameDnsRecordType"
+                            }
+                        },
+                        "domainId": {
+                            "description": "Fully qualified ARM domain resource URI",
+                            "type": "string"
+                        },
+                        "hostNameType": {
+                            "description": "Host name type",
+                            "enum": [
+                                "Verified",
+                                "Managed"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "HostNameType"
+                            }
+                        },
+                        "name": {
+                            "description": "Hostname",
+                            "type": "string"
+                        },
+                        "siteName": {
+                            "description": "Web app name",
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

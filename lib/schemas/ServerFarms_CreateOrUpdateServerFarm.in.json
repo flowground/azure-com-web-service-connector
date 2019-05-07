@@ -1,0 +1,180 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "allowPendingState": {
+            "type": "boolean"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "App Service Plan Model",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "adminSiteName": {
+                            "description": "App Service Plan administration site",
+                            "type": "string"
+                        },
+                        "geoRegion": {
+                            "description": "Geographical location for the App Service Plan",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "hostingEnvironmentProfile": {
+                            "description": "Specification for the hosting environment (App Service Environment) to use for the App Service Plan",
+                            "properties": {
+                                "id": {
+                                    "description": "Resource id of the hostingEnvironment (App Service Environment)",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Name of the hostingEnvironment (App Service Environment) (read only)",
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "Resource type of the hostingEnvironment (App Service Environment) (read only)",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "maximumNumberOfWorkers": {
+                            "description": "Maximum number of instances that can be assigned to this App Service Plan",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "name": {
+                            "description": "Name for the App Service Plan",
+                            "type": "string"
+                        },
+                        "numberOfSites": {
+                            "description": "Number of web apps assigned to this App Service Plan",
+                            "format": "int32",
+                            "readOnly": true,
+                            "type": "integer"
+                        },
+                        "perSiteScaling": {
+                            "description": "If True apps assigned to this App Service Plan can be scaled independently\r\n            If False apps assigned to this App Service Plan will scale to all instances of the plan",
+                            "type": "boolean"
+                        },
+                        "reserved": {
+                            "description": "Enables creation of a Linux App Service Plan",
+                            "type": "boolean"
+                        },
+                        "resourceGroup": {
+                            "description": "Resource group of the server farm",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "status": {
+                            "description": "App Service Plan Status",
+                            "enum": [
+                                "Ready",
+                                "Pending"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "StatusOptions"
+                            }
+                        },
+                        "subscription": {
+                            "description": "App Service Plan Subscription",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "workerTierName": {
+                            "description": "Target worker tier assigned to the App Service Plan",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "status"
+                    ],
+                    "x-ms-client-flatten": true
+                },
+                "sku": {
+                    "description": "Describes a sku for a scalable resource",
+                    "properties": {
+                        "capacity": {
+                            "description": "Current number of instances assigned to the resource",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "family": {
+                            "description": "Family code of the resource sku",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the resource sku",
+                            "type": "string"
+                        },
+                        "size": {
+                            "description": "Size specifier of the resource sku",
+                            "type": "string"
+                        },
+                        "tier": {
+                            "description": "Service Tier of the resource sku",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

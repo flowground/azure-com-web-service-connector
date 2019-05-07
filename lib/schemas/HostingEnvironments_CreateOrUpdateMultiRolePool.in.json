@@ -1,0 +1,131 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Worker pool of a hostingEnvironment (App Service Environment)",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "computeMode": {
+                            "description": "Shared or dedicated web app hosting",
+                            "enum": [
+                                "Shared",
+                                "Dedicated",
+                                "Dynamic"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ComputeModeOptions"
+                            }
+                        },
+                        "instanceNames": {
+                            "description": "Names of all instances in the worker pool (read only)",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "workerCount": {
+                            "description": "Number of instances in the worker pool",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "workerSize": {
+                            "description": "VM size of the worker pool instances",
+                            "type": "string"
+                        },
+                        "workerSizeId": {
+                            "description": "Worker size id for referencing this worker pool",
+                            "format": "int32",
+                            "type": "integer"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                },
+                "sku": {
+                    "description": "Describes a sku for a scalable resource",
+                    "properties": {
+                        "capacity": {
+                            "description": "Current number of instances assigned to the resource",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "family": {
+                            "description": "Family code of the resource sku",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the resource sku",
+                            "type": "string"
+                        },
+                        "size": {
+                            "description": "Size specifier of the resource sku",
+                            "type": "string"
+                        },
+                        "tier": {
+                            "description": "Service Tier of the resource sku",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

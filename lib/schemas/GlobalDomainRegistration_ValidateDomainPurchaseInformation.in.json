@@ -1,0 +1,513 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Domain registration input for validation Api",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "autoRenew": {
+                            "description": "If true then domain will renewed automatically",
+                            "type": "boolean"
+                        },
+                        "consent": {
+                            "description": "Legal agreement consent",
+                            "properties": {
+                                "agreedAt": {
+                                    "description": "Timestamp when the agreements were accepted",
+                                    "format": "date-time",
+                                    "type": "string"
+                                },
+                                "agreedBy": {
+                                    "description": "Client IP address",
+                                    "type": "string"
+                                },
+                                "agreementKeys": {
+                                    "description": "List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements Api under TopLevelDomain resource",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "contactAdmin": {
+                            "description": "Admin contact information",
+                            "properties": {
+                                "addressMailing": {
+                                    "description": "Mailing address",
+                                    "properties": {
+                                        "address1": {
+                                            "description": "Address 1",
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Address 2",
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "description": "City",
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "description": "Country",
+                                            "type": "string"
+                                        },
+                                        "postalCode": {
+                                            "description": "Postal code",
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "description": "State",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "email": {
+                                    "description": "Email address",
+                                    "type": "string"
+                                },
+                                "fax": {
+                                    "description": "Fax number",
+                                    "type": "string"
+                                },
+                                "jobTitle": {
+                                    "description": "Job title",
+                                    "type": "string"
+                                },
+                                "nameFirst": {
+                                    "description": "First name",
+                                    "type": "string"
+                                },
+                                "nameLast": {
+                                    "description": "Last name",
+                                    "type": "string"
+                                },
+                                "nameMiddle": {
+                                    "description": "Middle name",
+                                    "type": "string"
+                                },
+                                "organization": {
+                                    "description": "Organization",
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "description": "Phone number",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "contactBilling": {
+                            "description": "Billing contact information",
+                            "properties": {
+                                "addressMailing": {
+                                    "description": "Mailing address",
+                                    "properties": {
+                                        "address1": {
+                                            "description": "Address 1",
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Address 2",
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "description": "City",
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "description": "Country",
+                                            "type": "string"
+                                        },
+                                        "postalCode": {
+                                            "description": "Postal code",
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "description": "State",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "email": {
+                                    "description": "Email address",
+                                    "type": "string"
+                                },
+                                "fax": {
+                                    "description": "Fax number",
+                                    "type": "string"
+                                },
+                                "jobTitle": {
+                                    "description": "Job title",
+                                    "type": "string"
+                                },
+                                "nameFirst": {
+                                    "description": "First name",
+                                    "type": "string"
+                                },
+                                "nameLast": {
+                                    "description": "Last name",
+                                    "type": "string"
+                                },
+                                "nameMiddle": {
+                                    "description": "Middle name",
+                                    "type": "string"
+                                },
+                                "organization": {
+                                    "description": "Organization",
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "description": "Phone number",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "contactRegistrant": {
+                            "description": "Registrant contact information",
+                            "properties": {
+                                "addressMailing": {
+                                    "description": "Mailing address",
+                                    "properties": {
+                                        "address1": {
+                                            "description": "Address 1",
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Address 2",
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "description": "City",
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "description": "Country",
+                                            "type": "string"
+                                        },
+                                        "postalCode": {
+                                            "description": "Postal code",
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "description": "State",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "email": {
+                                    "description": "Email address",
+                                    "type": "string"
+                                },
+                                "fax": {
+                                    "description": "Fax number",
+                                    "type": "string"
+                                },
+                                "jobTitle": {
+                                    "description": "Job title",
+                                    "type": "string"
+                                },
+                                "nameFirst": {
+                                    "description": "First name",
+                                    "type": "string"
+                                },
+                                "nameLast": {
+                                    "description": "Last name",
+                                    "type": "string"
+                                },
+                                "nameMiddle": {
+                                    "description": "Middle name",
+                                    "type": "string"
+                                },
+                                "organization": {
+                                    "description": "Organization",
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "description": "Phone number",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "contactTech": {
+                            "description": "Technical contact information",
+                            "properties": {
+                                "addressMailing": {
+                                    "description": "Mailing address",
+                                    "properties": {
+                                        "address1": {
+                                            "description": "Address 1",
+                                            "type": "string"
+                                        },
+                                        "address2": {
+                                            "description": "Address 2",
+                                            "type": "string"
+                                        },
+                                        "city": {
+                                            "description": "City",
+                                            "type": "string"
+                                        },
+                                        "country": {
+                                            "description": "Country",
+                                            "type": "string"
+                                        },
+                                        "postalCode": {
+                                            "description": "Postal code",
+                                            "type": "string"
+                                        },
+                                        "state": {
+                                            "description": "State",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "email": {
+                                    "description": "Email address",
+                                    "type": "string"
+                                },
+                                "fax": {
+                                    "description": "Fax number",
+                                    "type": "string"
+                                },
+                                "jobTitle": {
+                                    "description": "Job title",
+                                    "type": "string"
+                                },
+                                "nameFirst": {
+                                    "description": "First name",
+                                    "type": "string"
+                                },
+                                "nameLast": {
+                                    "description": "Last name",
+                                    "type": "string"
+                                },
+                                "nameMiddle": {
+                                    "description": "Middle name",
+                                    "type": "string"
+                                },
+                                "organization": {
+                                    "description": "Organization",
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "description": "Phone number",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "createdTime": {
+                            "description": "Domain creation timestamp",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "domainNotRenewableReasons": {
+                            "description": "Reasons why domain is not renewable",
+                            "items": {
+                                "enum": [
+                                    "RegistrationStatusNotSupportedForRenewal",
+                                    "ExpirationNotInRenewalTimeRange",
+                                    "SubscriptionNotActive"
+                                ],
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "expirationTime": {
+                            "description": "Domain expiration timestamp",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "lastRenewedTime": {
+                            "description": "Timestamp when the domain was renewed last time",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "managedHostNames": {
+                            "description": "All hostnames derived from the domain and assigned to Azure resources",
+                            "items": {
+                                "description": "Details of a hostname derived from a domain",
+                                "properties": {
+                                    "azureResourceName": {
+                                        "description": "Name of the Azure resource the hostname is assigned to. If it is assigned to a traffic manager then it will be the traffic manager name otherwise it will be the website name",
+                                        "type": "string"
+                                    },
+                                    "azureResourceType": {
+                                        "description": "Type of the Azure resource the hostname is assigned to",
+                                        "enum": [
+                                            "Website",
+                                            "TrafficManager"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": false,
+                                            "name": "AzureResourceType"
+                                        }
+                                    },
+                                    "customHostNameDnsRecordType": {
+                                        "description": "Type of the Dns record",
+                                        "enum": [
+                                            "CName",
+                                            "A"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": false,
+                                            "name": "CustomHostNameDnsRecordType"
+                                        }
+                                    },
+                                    "hostNameType": {
+                                        "description": "Type of the hostname",
+                                        "enum": [
+                                            "Verified",
+                                            "Managed"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": false,
+                                            "name": "HostNameType"
+                                        }
+                                    },
+                                    "name": {
+                                        "description": "Name of the hostname",
+                                        "type": "string"
+                                    },
+                                    "siteNames": {
+                                        "description": "List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "name": {
+                            "description": "Name of the domain",
+                            "type": "string"
+                        },
+                        "nameServers": {
+                            "description": "Name servers",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "privacy": {
+                            "description": "If true then domain privacy is enabled for this domain",
+                            "type": "boolean"
+                        },
+                        "provisioningState": {
+                            "description": "Domain provisioning state",
+                            "enum": [
+                                "Succeeded",
+                                "Failed",
+                                "Canceled",
+                                "InProgress",
+                                "Deleting"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ProvisioningState"
+                            }
+                        },
+                        "readyForDnsRecordManagement": {
+                            "description": "If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to",
+                            "type": "boolean"
+                        },
+                        "registrationStatus": {
+                            "description": "Domain registration status",
+                            "enum": [
+                                "Active",
+                                "Awaiting",
+                                "Cancelled",
+                                "Confiscated",
+                                "Disabled",
+                                "Excluded",
+                                "Expired",
+                                "Failed",
+                                "Held",
+                                "Locked",
+                                "Parked",
+                                "Pending",
+                                "Reserved",
+                                "Reverted",
+                                "Suspended",
+                                "Transferred",
+                                "Unknown",
+                                "Unlocked",
+                                "Unparked",
+                                "Updated",
+                                "JsonConverterFailed"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "DomainStatus"
+                            }
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

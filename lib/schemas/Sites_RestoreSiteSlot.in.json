@@ -1,0 +1,147 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "backupId": {
+            "required": true,
+            "type": "string"
+        },
+        "slot": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Description of a restore request",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "adjustConnectionStrings": {
+                            "description": "Gets or sets a flag showing if SiteConfig.ConnectionStrings should be set in new site",
+                            "type": "boolean"
+                        },
+                        "blobName": {
+                            "description": "Name of a blob which contains the backup",
+                            "type": "string"
+                        },
+                        "databases": {
+                            "description": "Collection of databases which should be restored. This list has to match the list of databases included in the backup.",
+                            "items": {
+                                "description": "Note: properties are serialized in JSON format and stored in DB. \r\n            if new properties are added they might not be in the previous data rows \r\n            so please handle nulls",
+                                "properties": {
+                                    "connectionString": {
+                                        "description": "Contains a connection string to a database which is being backed up/restored. If the restore should happen to a new database, the database name inside is the new one.",
+                                        "type": "string"
+                                    },
+                                    "connectionStringName": {
+                                        "description": "Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.\r\n            This is used during restore with overwrite connection strings options.",
+                                        "type": "string"
+                                    },
+                                    "databaseType": {
+                                        "description": "SqlAzure / MySql",
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "hostingEnvironment": {
+                            "description": "App Service Environment name, if needed (only when restoring a site to an App Service Environment)",
+                            "type": "string"
+                        },
+                        "ignoreConflictingHostNames": {
+                            "description": "Changes a logic when restoring a site with custom domains. If \"true\", custom domains are removed automatically. If \"false\", custom domains are added to \r\n            the site object when it is being restored, but that might fail due to conflicts during the operation.",
+                            "type": "boolean"
+                        },
+                        "operationType": {
+                            "description": "Operation type",
+                            "enum": [
+                                "Default",
+                                "Clone",
+                                "Relocation"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "BackupRestoreOperationType"
+                            }
+                        },
+                        "overwrite": {
+                            "description": "True if the restore operation can overwrite target site. \"True\" needed if trying to restore over an existing site.",
+                            "type": "boolean"
+                        },
+                        "siteName": {
+                            "description": "Name of a site (Web App)",
+                            "type": "string"
+                        },
+                        "storageAccountUrl": {
+                            "description": "SAS URL to the container",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "operationType"
+                    ],
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,121 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "instanceId": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Represents user credentials used for publishing activity",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "active": {
+                            "description": "Active",
+                            "type": "boolean"
+                        },
+                        "author": {
+                            "description": "Author",
+                            "type": "string"
+                        },
+                        "author_email": {
+                            "description": "AuthorEmail",
+                            "type": "string"
+                        },
+                        "deployer": {
+                            "description": "Deployer",
+                            "type": "string"
+                        },
+                        "details": {
+                            "description": "Detail",
+                            "type": "string"
+                        },
+                        "end_time": {
+                            "description": "EndTime",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "id": {
+                            "description": "Id",
+                            "type": "string"
+                        },
+                        "message": {
+                            "description": "Message",
+                            "type": "string"
+                        },
+                        "start_time": {
+                            "description": "StartTime",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "status": {
+                            "description": "Status",
+                            "format": "int32",
+                            "type": "integer"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

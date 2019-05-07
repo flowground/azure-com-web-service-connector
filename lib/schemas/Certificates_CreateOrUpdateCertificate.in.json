@@ -1,0 +1,149 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "App certificate",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "cerBlob": {
+                            "description": "Raw bytes of .cer file",
+                            "type": "string"
+                        },
+                        "expirationDate": {
+                            "description": "Certificate expiration date",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "friendlyName": {
+                            "description": "Friendly name of the certificate",
+                            "type": "string"
+                        },
+                        "hostNames": {
+                            "description": "Host names the certificate applies to",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "hostingEnvironmentProfile": {
+                            "description": "Specification for the hosting environment (App Service Environment) to use for the certificate",
+                            "properties": {
+                                "id": {
+                                    "description": "Resource id of the hostingEnvironment (App Service Environment)",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Name of the hostingEnvironment (App Service Environment) (read only)",
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "Resource type of the hostingEnvironment (App Service Environment) (read only)",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "issueDate": {
+                            "description": "Certificate issue Date",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "issuer": {
+                            "description": "Certificate issuer",
+                            "type": "string"
+                        },
+                        "password": {
+                            "description": "Certificate password",
+                            "type": "string"
+                        },
+                        "pfxBlob": {
+                            "description": "Pfx blob",
+                            "type": "string"
+                        },
+                        "publicKeyHash": {
+                            "description": "Public key hash",
+                            "type": "string"
+                        },
+                        "selfLink": {
+                            "description": "Self link",
+                            "type": "string"
+                        },
+                        "siteName": {
+                            "description": "App name",
+                            "type": "string"
+                        },
+                        "subjectName": {
+                            "description": "Subject name of the certificate",
+                            "type": "string"
+                        },
+                        "thumbprint": {
+                            "description": "Certificate thumbprint",
+                            "type": "string"
+                        },
+                        "valid": {
+                            "description": "Is the certificate valid?",
+                            "type": "boolean"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

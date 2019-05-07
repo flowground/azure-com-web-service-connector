@@ -1,0 +1,83 @@
+{
+    "type": "object",
+    "properties": {
+        "sourceControlType": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Describes the Source Control OAuth Token",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "expirationTime": {
+                            "description": "OAuth Token Expiration",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name or Source Control Type",
+                            "type": "string"
+                        },
+                        "refreshToken": {
+                            "description": "OAuth Refresh Token",
+                            "type": "string"
+                        },
+                        "token": {
+                            "description": "OAuth Access Token",
+                            "type": "string"
+                        },
+                        "tokenSecret": {
+                            "description": "OAuth Access Token Secret",
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

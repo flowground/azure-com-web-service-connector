@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "siteName": {
+            "required": true,
+            "type": "string"
+        },
+        "featured": {
+            "type": "boolean"
+        },
+        "siteSku": {
+            "type": "string"
+        },
+        "numSlots": {
+            "type": "integer",
+            "format": "int32"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

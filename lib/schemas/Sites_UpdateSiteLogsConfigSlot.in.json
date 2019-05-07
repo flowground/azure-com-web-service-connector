@@ -1,0 +1,221 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "slot": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Configuration of Azure web site",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "applicationLogs": {
+                            "description": "Application logs configuration",
+                            "properties": {
+                                "azureBlobStorage": {
+                                    "description": "Application logs to blob storage configuration",
+                                    "properties": {
+                                        "level": {
+                                            "description": "Log level",
+                                            "enum": [
+                                                "Off",
+                                                "Verbose",
+                                                "Information",
+                                                "Warning",
+                                                "Error"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "LogLevel"
+                                            }
+                                        },
+                                        "retentionInDays": {
+                                            "description": "Retention in days.\r\n            Remove blobs older than X days.\r\n            0 or lower means no retention.",
+                                            "format": "int32",
+                                            "type": "integer"
+                                        },
+                                        "sasUrl": {
+                                            "description": "SAS url to a azure blob container with read/write/list/delete permissions",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "azureTableStorage": {
+                                    "description": "Application logs to azure table storage configuration",
+                                    "properties": {
+                                        "level": {
+                                            "description": "Log level",
+                                            "enum": [
+                                                "Off",
+                                                "Verbose",
+                                                "Information",
+                                                "Warning",
+                                                "Error"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "LogLevel"
+                                            }
+                                        },
+                                        "sasUrl": {
+                                            "description": "SAS url to an azure table with add/query/delete permissions",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "fileSystem": {
+                                    "description": "Application logs to file system configuration",
+                                    "properties": {
+                                        "level": {
+                                            "description": "Log level",
+                                            "enum": [
+                                                "Off",
+                                                "Verbose",
+                                                "Information",
+                                                "Warning",
+                                                "Error"
+                                            ],
+                                            "type": "string",
+                                            "x-ms-enum": {
+                                                "modelAsString": false,
+                                                "name": "LogLevel"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "detailedErrorMessages": {
+                            "description": "Detailed error messages configuration",
+                            "properties": {
+                                "enabled": {
+                                    "description": "Enabled",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "failedRequestsTracing": {
+                            "description": "Failed requests tracing configuration",
+                            "properties": {
+                                "enabled": {
+                                    "description": "Enabled",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "httpLogs": {
+                            "description": "Http logs configuration",
+                            "properties": {
+                                "azureBlobStorage": {
+                                    "description": "Http logs to azure blob storage configuration",
+                                    "properties": {
+                                        "enabled": {
+                                            "description": "Enabled",
+                                            "type": "boolean"
+                                        },
+                                        "retentionInDays": {
+                                            "description": "Retention in days.\r\n            Remove blobs older than X days.\r\n            0 or lower means no retention.",
+                                            "format": "int32",
+                                            "type": "integer"
+                                        },
+                                        "sasUrl": {
+                                            "description": "SAS url to a azure blob container with read/write/list/delete permissions",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "fileSystem": {
+                                    "description": "Http logs to file system configuration",
+                                    "properties": {
+                                        "enabled": {
+                                            "description": "Enabled",
+                                            "type": "boolean"
+                                        },
+                                        "retentionInDays": {
+                                            "description": "Retention in days.\r\n            Remove files older than X days.\r\n            0 or lower means no retention.",
+                                            "format": "int32",
+                                            "type": "integer"
+                                        },
+                                        "retentionInMb": {
+                                            "description": "Maximum size in megabytes that http log files can use.\r\n            When reached old log files will be removed to make space for new ones.\r\n            Value can range between 25 and 100.",
+                                            "format": "int32",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

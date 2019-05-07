@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Domain recommendation search parameters",
+            "properties": {
+                "keywords": {
+                    "description": "Keywords to be used for generating domain recommendations",
+                    "type": "string"
+                },
+                "maxDomainRecommendations": {
+                    "description": "Maximum number of recommendations",
+                    "format": "int32",
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

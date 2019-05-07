@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "slot": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Class containing deployment slot parameters",
+            "properties": {
+                "preserveVnet": {
+                    "description": "Get or set the flag indicating it should preserve VNet to the slot during swap",
+                    "type": "boolean"
+                },
+                "targetSlot": {
+                    "description": "Set the destination deployment slot during swap operation",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "environmentName": {
+            "required": true,
+            "type": "string"
+        },
+        "lastId": {
+            "required": true,
+            "type": "string"
+        },
+        "batchSize": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

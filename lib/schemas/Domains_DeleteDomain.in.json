@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "domainName": {
+            "required": true,
+            "type": "string"
+        },
+        "forceHardDeleteDomain": {
+            "type": "boolean"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

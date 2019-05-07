@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "details": {
+            "type": "boolean"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "_filter": {
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

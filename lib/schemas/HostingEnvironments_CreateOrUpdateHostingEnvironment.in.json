@@ -1,0 +1,495 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Description of an hostingEnvironment (App Service Environment)",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "allowedMultiSizes": {
+                            "description": "List of comma separated strings describing which VM sizes are allowed for front-ends",
+                            "type": "string"
+                        },
+                        "allowedWorkerSizes": {
+                            "description": "List of comma separated strings describing which VM sizes are allowed for workers",
+                            "type": "string"
+                        },
+                        "apiManagementAccountId": {
+                            "description": "Api Management Account associated with this Hosting Environment",
+                            "type": "string"
+                        },
+                        "clusterSettings": {
+                            "description": "Custom settings for changing the behavior of the hosting environment",
+                            "items": {
+                                "description": "Name value pair",
+                                "properties": {
+                                    "name": {
+                                        "description": "Pair name",
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "description": "Pair value",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "databaseEdition": {
+                            "description": "Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. \"Standard\"",
+                            "type": "string"
+                        },
+                        "databaseServiceObjective": {
+                            "description": "Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. \"S0\"",
+                            "type": "string"
+                        },
+                        "dnsSuffix": {
+                            "description": "DNS suffix of the hostingEnvironment (App Service Environment)",
+                            "type": "string"
+                        },
+                        "environmentCapacities": {
+                            "description": "Current total, used, and available worker capacities",
+                            "items": {
+                                "description": "Class containing stamp capacity information",
+                                "properties": {
+                                    "availableCapacity": {
+                                        "description": "Available capacity (# of machines, bytes of storage etc...)",
+                                        "format": "int64",
+                                        "type": "integer"
+                                    },
+                                    "computeMode": {
+                                        "description": "Shared/Dedicated workers",
+                                        "enum": [
+                                            "Shared",
+                                            "Dedicated",
+                                            "Dynamic"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": false,
+                                            "name": "ComputeModeOptions"
+                                        }
+                                    },
+                                    "excludeFromCapacityAllocation": {
+                                        "description": "If true it includes basic sites\r\n            Basic sites are not used for capacity allocation.",
+                                        "type": "boolean"
+                                    },
+                                    "isApplicableForAllComputeModes": {
+                                        "description": "Is capacity applicable for all sites?",
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "description": "Name of the stamp",
+                                        "type": "string"
+                                    },
+                                    "siteMode": {
+                                        "description": "Shared or Dedicated",
+                                        "type": "string"
+                                    },
+                                    "totalCapacity": {
+                                        "description": "Total capacity (# of machines, bytes of storage etc...)",
+                                        "format": "int64",
+                                        "type": "integer"
+                                    },
+                                    "unit": {
+                                        "description": "Name of the unit",
+                                        "type": "string"
+                                    },
+                                    "workerSize": {
+                                        "description": "Size of the machines",
+                                        "enum": [
+                                            "Default",
+                                            "Small",
+                                            "Medium",
+                                            "Large"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": false,
+                                            "name": "WorkerSizeOptions"
+                                        }
+                                    },
+                                    "workerSizeId": {
+                                        "description": "Size Id of machines: \r\n            0 - Small\r\n            1 - Medium\r\n            2 - Large",
+                                        "format": "int32",
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "environmentIsHealthy": {
+                            "description": "True/false indicating whether the hostingEnvironment (App Service Environment) is healthy",
+                            "type": "boolean"
+                        },
+                        "environmentStatus": {
+                            "description": "Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)",
+                            "type": "string"
+                        },
+                        "internalLoadBalancingMode": {
+                            "description": "Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET",
+                            "enum": [
+                                "None",
+                                "Web",
+                                "Publishing"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "InternalLoadBalancingMode"
+                            }
+                        },
+                        "ipsslAddressCount": {
+                            "description": "Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "lastAction": {
+                            "description": "Last deployment action on this hostingEnvironment (App Service Environment)",
+                            "type": "string"
+                        },
+                        "lastActionResult": {
+                            "description": "Result of the last deployment action on this hostingEnvironment (App Service Environment)",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Location of the hostingEnvironment (App Service Environment), e.g. \"West US\"",
+                            "type": "string"
+                        },
+                        "maximumNumberOfMachines": {
+                            "description": "Maximum number of VMs in this hostingEnvironment (App Service Environment)",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "multiRoleCount": {
+                            "description": "Number of front-end instances",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "multiSize": {
+                            "description": "Front-end VM size, e.g. \"Medium\", \"Large\"",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of the hostingEnvironment (App Service Environment)",
+                            "type": "string"
+                        },
+                        "networkAccessControlList": {
+                            "description": "Access control list for controlling traffic to the hostingEnvironment (App Service Environment)",
+                            "items": {
+                                "properties": {
+                                    "action": {
+                                        "enum": [
+                                            "Permit",
+                                            "Deny"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": false,
+                                            "name": "AccessControlEntryAction"
+                                        }
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "order": {
+                                        "format": "int32",
+                                        "type": "integer"
+                                    },
+                                    "remoteSubnet": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "provisioningState": {
+                            "description": "Provisioning state of the hostingEnvironment (App Service Environment)",
+                            "enum": [
+                                "Succeeded",
+                                "Failed",
+                                "Canceled",
+                                "InProgress",
+                                "Deleting"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "ProvisioningState"
+                            }
+                        },
+                        "resourceGroup": {
+                            "description": "Resource group of the hostingEnvironment (App Service Environment)",
+                            "type": "string"
+                        },
+                        "status": {
+                            "description": "Current status of the hostingEnvironment (App Service Environment)",
+                            "enum": [
+                                "Preparing",
+                                "Ready",
+                                "Scaling",
+                                "Deleting"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": false,
+                                "name": "HostingEnvironmentStatus"
+                            }
+                        },
+                        "subscriptionId": {
+                            "description": "Subscription of the hostingEnvironment (App Service Environment)",
+                            "type": "string"
+                        },
+                        "suspended": {
+                            "description": "True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available\r\n            (most likely because NSG blocked the incoming traffic)",
+                            "type": "boolean"
+                        },
+                        "upgradeDomains": {
+                            "description": "Number of upgrade domains of this hostingEnvironment (App Service Environment)",
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "vipMappings": {
+                            "description": "Description of IP SSL mapping for this hostingEnvironment (App Service Environment)",
+                            "items": {
+                                "description": "Class that represents a VIP mapping",
+                                "properties": {
+                                    "inUse": {
+                                        "description": "Is VIP mapping in use",
+                                        "type": "boolean"
+                                    },
+                                    "internalHttpPort": {
+                                        "description": "Internal HTTP port",
+                                        "format": "int32",
+                                        "type": "integer"
+                                    },
+                                    "internalHttpsPort": {
+                                        "description": "Internal HTTPS port",
+                                        "format": "int32",
+                                        "type": "integer"
+                                    },
+                                    "virtualIP": {
+                                        "description": "Virtual IP address",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "virtualNetwork": {
+                            "description": "Description of the hostingEnvironment's (App Service Environment) virtual network",
+                            "properties": {
+                                "id": {
+                                    "description": "Resource id of the virtual network",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Name of the virtual network (read-only)",
+                                    "type": "string"
+                                },
+                                "subnet": {
+                                    "description": "Subnet within the virtual network",
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "Resource type of the virtual network (read-only)",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "vnetName": {
+                            "description": "Name of the hostingEnvironment's (App Service Environment) virtual network",
+                            "type": "string"
+                        },
+                        "vnetResourceGroupName": {
+                            "description": "Resource group of the hostingEnvironment's (App Service Environment) virtual network",
+                            "type": "string"
+                        },
+                        "vnetSubnetName": {
+                            "description": "Subnet of the hostingEnvironment's (App Service Environment) virtual network",
+                            "type": "string"
+                        },
+                        "workerPools": {
+                            "description": "Description of worker pools with worker size ids, VM sizes, and number of workers in each pool",
+                            "items": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "id": {
+                                                "description": "Resource Id",
+                                                "type": "string"
+                                            },
+                                            "kind": {
+                                                "description": "Kind of resource",
+                                                "type": "string"
+                                            },
+                                            "location": {
+                                                "description": "Resource Location",
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "description": "Resource Name",
+                                                "type": "string"
+                                            },
+                                            "tags": {
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                },
+                                                "description": "Resource tags",
+                                                "type": "object"
+                                            },
+                                            "type": {
+                                                "description": "Resource type",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "location"
+                                        ],
+                                        "x-ms-azure-resource": true,
+                                        "type": "object"
+                                    }
+                                ],
+                                "description": "Worker pool of a hostingEnvironment (App Service Environment)",
+                                "properties": {
+                                    "properties": {
+                                        "properties": {
+                                            "computeMode": {
+                                                "description": "Shared or dedicated web app hosting",
+                                                "enum": [
+                                                    "Shared",
+                                                    "Dedicated",
+                                                    "Dynamic"
+                                                ],
+                                                "type": "string",
+                                                "x-ms-enum": {
+                                                    "modelAsString": false,
+                                                    "name": "ComputeModeOptions"
+                                                }
+                                            },
+                                            "instanceNames": {
+                                                "description": "Names of all instances in the worker pool (read only)",
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "workerCount": {
+                                                "description": "Number of instances in the worker pool",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "workerSize": {
+                                                "description": "VM size of the worker pool instances",
+                                                "type": "string"
+                                            },
+                                            "workerSizeId": {
+                                                "description": "Worker size id for referencing this worker pool",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "x-ms-client-flatten": true
+                                    },
+                                    "sku": {
+                                        "description": "Describes a sku for a scalable resource",
+                                        "properties": {
+                                            "capacity": {
+                                                "description": "Current number of instances assigned to the resource",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "family": {
+                                                "description": "Family code of the resource sku",
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "description": "Name of the resource sku",
+                                                "type": "string"
+                                            },
+                                            "size": {
+                                                "description": "Size specifier of the resource sku",
+                                                "type": "string"
+                                            },
+                                            "tier": {
+                                                "description": "Service Tier of the resource sku",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "status"
+                    ],
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

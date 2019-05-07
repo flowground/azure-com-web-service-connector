@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Options for retrieving the list of top level domain legal agreements",
+            "properties": {
+                "includePrivacy": {
+                    "description": "If true then the list of agreements will include agreements for domain privacy as well.",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

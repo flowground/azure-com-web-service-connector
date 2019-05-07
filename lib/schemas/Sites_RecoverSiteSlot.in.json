@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "slot": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Class containing details about site recovery operation.",
+            "properties": {
+                "recoverConfig": {
+                    "description": "If true, then the website's configuration will be reverted to its state at SnapshotTime",
+                    "type": "boolean"
+                },
+                "siteName": {
+                    "description": "[Optional] Destination web app name into which web app should be recovered. This is case when new web app should be created instead.",
+                    "type": "string"
+                },
+                "slotName": {
+                    "description": "[Optional] Destination web app slot name into which web app should be recovered",
+                    "type": "string"
+                },
+                "snapshotTime": {
+                    "description": "Point in time in which the site recover should be attempted.",
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

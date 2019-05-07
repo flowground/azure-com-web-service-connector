@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "sku": {
+            "type": "string"
+        },
+        "linuxWorkersEnabled": {
+            "type": "boolean"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

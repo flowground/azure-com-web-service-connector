@@ -1,0 +1,98 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id",
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource",
+                            "type": "string"
+                        },
+                        "location": {
+                            "description": "Resource Location",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name",
+                            "type": "string"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Resource tags",
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "Resource type",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "location"
+                    ],
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "Certificate signing request object",
+            "properties": {
+                "properties": {
+                    "properties": {
+                        "csrString": {
+                            "description": "Actual CSR string created",
+                            "type": "string"
+                        },
+                        "distinguishedName": {
+                            "description": "Distinguished name of certificate to be created",
+                            "type": "string"
+                        },
+                        "hostingEnvironment": {
+                            "description": "Hosting environment",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name used to locate CSR object",
+                            "type": "string"
+                        },
+                        "password": {
+                            "description": "PFX password",
+                            "type": "string"
+                        },
+                        "pfxBlob": {
+                            "description": "PFX certificate of created certificate",
+                            "type": "string"
+                        },
+                        "publicKeyHash": {
+                            "description": "Hash of the certificates public key",
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

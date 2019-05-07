@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "name": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Publishing options for requested profile",
+            "properties": {
+                "format": {
+                    "description": "Name of the format. Valid values are: \r\n            FileZilla3\r\n            WebDeploy -- default\r\n            Ftp",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
